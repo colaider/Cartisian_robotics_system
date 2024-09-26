@@ -71,13 +71,11 @@ void setupMicrosteping(float step){
 
 //<-- forward: dir = high || backward: dir = low -->
 void movePerMilsOnStep(int dir, int actuator){
-  
-    digitalWrite(dirPin[actuator], dir);
-		digitalWrite(stepPin[actuator], HIGH);
-		delayMicroseconds(delForMotors);
-		digitalWrite(stepPin[actuator], LOW);
-		delayMicroseconds(delForMotors);
-
+  digitalWrite(dirPin[actuator], dir);
+  digitalWrite(stepPin[actuator], HIGH);
+  delayMicroseconds(delForMotors);
+  digitalWrite(stepPin[actuator], LOW);
+  delayMicroseconds(delForMotors);
 }
 
 void zigZagPatern(int len, int heigh){
@@ -182,7 +180,7 @@ void moveAllMotorsOnDistance(float step, float x, float y, float z){
   }
 
   for(int i=0; i<aStepsSorted[2] - aStepsSorted[1] - aStepsSorted[0];i++){
-     movePerMilsOnStep(dirArr[orderArr[2]], orderArr[2]);
+    movePerMilsOnStep(dirArr[orderArr[2]], orderArr[2]);
     blinkingMotFunc();
     blinkingMotFunc();
   }
